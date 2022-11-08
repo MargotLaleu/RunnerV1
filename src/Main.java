@@ -19,6 +19,7 @@ public class Main extends Application {
 
 
     System.out.println(gameScene);
+    gameScene.render(300, 50);
 
     primaryStage.show();
 }

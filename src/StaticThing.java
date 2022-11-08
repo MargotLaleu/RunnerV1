@@ -14,10 +14,10 @@ public class StaticThing {
     }
 
     public StaticThing(String fileName, int x){
-        Image fichierDesert = new Image(fileName);
-        desert = new ImageView(fichierDesert);
-        desert.setViewport(new Rectangle2D(0, 50,800,300));
-        desert.setX(x);
+        Image fichierDesert = new Image(fileName);  //ouverture du fichier png
+        desert = new ImageView(fichierDesert);      //chargement de l'image
+        desert.setViewport(new Rectangle2D(0, 50,800,300)); //découpage de l'image aux dimensions souhaitées
+        desert.setX(x); // établie l'abscisse auquel va démarrer la portion d'image séléctionnée
     }
 
 
