@@ -5,9 +5,9 @@ public class Camera {
     private double vitesse=5; // vitesse de la caméra
     private double acceleration; // accélération de la camera
     private double timeTampon =0;
-    private double k = 15; // raideur du ressort de la camera
+    private double k = 45; // raideur du ressort de la camera
     private double m = 5; // masse de la caméra
-    private double f = 6; // constante en kg.s-1 -> taux d'accrétion ou émission
+    private double f = 6; // frottement du ressort
 
     public Camera(double x, double y){
         this.coordinateX = x;

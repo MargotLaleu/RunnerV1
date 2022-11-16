@@ -37,7 +37,7 @@ abstract public class AnimatedThing {
     private Integer xFenetre, yFenetre;
     private Integer offset = 150; //offset du héros sur l'écran pour qu'il ne soit pas collé au bord gauche
 
-    private double vitesse= 0;
+    private double vitesse= 100;
     private double acceleration;
     private double k = 5; // raideur du ressort de la camera
     private double m = 5; // masse de la caméra
@@ -72,13 +72,13 @@ abstract public class AnimatedThing {
 
         if(lastTime != 0 ){
 
-            vitesse = 200;
+
+            //vitesse = 200;
+            //this.x = this.x + vitesse*deltaT;
+
+            acceleration = 10;
+            vitesse = vitesse<600 ? vitesse + acceleration*deltaT : 600;
             this.x = this.x + vitesse*deltaT;
-
-            //acceleration = k/m*(camera.getCoordinateX() - this.x) - f/m*vitesse;
-            //vitesse+= acceleration*deltaT;
-            //this.x =  (this.x + vitesse*deltaT);
-
 
         }
         lastTime = time;
