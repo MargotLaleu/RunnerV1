@@ -14,12 +14,12 @@ public class Main extends Application {
     //Pane pane = new Pane(root);
 
 
-    GameScene gameScene = new GameScene(0, 50, root );
+    GameScene gameScene = new GameScene(800, 50, root );
     primaryStage.setScene(gameScene);
 
 
     System.out.println(gameScene);
-    gameScene.render(300, 50);
+    //gameScene.render(300, 50);
 
     primaryStage.show();
 }

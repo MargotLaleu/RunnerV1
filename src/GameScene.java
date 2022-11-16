@@ -11,10 +11,10 @@ public class GameScene extends Scene {
     private StaticThing leftBackground;
     private Hero hero;
 
-    private long timeTampon;
+    private long timeTampon=0;
 
 
-    public GameScene(Integer x, Integer y, Group p){
+    public GameScene(double x, double y, Group p){
         super(p, 800, 300);
         this.camera = new Camera(x,y);  //position initiale de la camera
         leftBackground = new StaticThing("desert.png", 0);  //on crée un découpage de desert que l'on affichera à gauche en tant que background de notre runner, qui s'affiche en x=0
@@ -29,7 +29,7 @@ public class GameScene extends Scene {
 
     }
 
-    public void render(Integer xCamNew, Integer yCamNew){
+    public void render(double xCamNew, double yCamNew){
 
         camera.setCoordinateX(xCamNew); //change les coordonnées de notre camera
         camera.setCoordinateY(yCamNew);
@@ -39,17 +39,19 @@ public class GameScene extends Scene {
 
     }
 
+
     public void update(long time){
 
         if(time-timeTampon > 100000000) {
+            //camera.setCoordinateX((camera.getCoordinateX() + 10)%800) ;
 
-            camera.setCoordinateX((camera.getCoordinateX() + 10)%800) ;
-
-            leftBackground.getDesert().setX(-camera.getCoordinateX());
+            leftBackground.getDesert().setX((-camera.getCoordinateX()));
             rightBackground.getDesert().setX((800 - camera.getCoordinateX()));
 
             timeTampon = time;
+
         }
+
 
     }
 
