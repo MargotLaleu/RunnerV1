@@ -35,7 +35,7 @@ abstract public class AnimatedThing {
     private double lastTime = 0; // mémoire tampon pour calculer deltaT en s des formules physiques
     private Integer maxIndex = 6; //Index maximum sur la spriteSheet
     private Integer xFenetre, yFenetre;
-    private Integer offset = 200; //offset du héros sur l'écran pour qu'il ne soit pas collé au bord gauche
+    private Integer offset = 150; //offset du héros sur l'écran pour qu'il ne soit pas collé au bord gauche
 
     private double vitesse= 0;
     private double acceleration;
@@ -66,20 +66,22 @@ abstract public class AnimatedThing {
             timeTampon = time; // on actualise la mémoire tampon (on néglige le temps d'exécution de cette boucle if)
 
         }
+        System.out.println(spriteSheet.getX());
 
-        //double deltaT = (time - lastTime)/(1000000000); // la division sert à mettre deltaT en s (nécessaire pour les equations ci-dessous)
+        double deltaT = (time - lastTime)/(1000000000); // la division sert à mettre deltaT en s (nécessaire pour les equations ci-dessous)
 
-        //if(lastTime != 0 ){
+        if(lastTime != 0 ){
 
-            //vitesse = 2;
-            //this.x = this.x + vitesse*deltaT;
+            vitesse = 200;
+            this.x = this.x + vitesse*deltaT;
 
             //acceleration = k/m*(camera.getCoordinateX() - this.x) - f/m*vitesse;
             //vitesse+= acceleration*deltaT;
             //this.x =  (this.x + vitesse*deltaT);
 
-        //}
-        //lastTime = time;
+
+        }
+        lastTime = time;
 
 
     }

@@ -42,15 +42,24 @@ public class GameScene extends Scene {
 
     public void update(long time){
 
-        if(time-timeTampon > 100000000) {
+        //if(time-timeTampon > 100000000) {
             //camera.setCoordinateX((camera.getCoordinateX() + 10)%800) ;
 
-            leftBackground.getDesert().setX((-camera.getCoordinateX()));
-            rightBackground.getDesert().setX((800 - camera.getCoordinateX()));
 
-            timeTampon = time;
+            leftBackground.getDesert().setX(-(camera.getCoordinateX() % 800));
+            rightBackground.getDesert().setX(800 - (camera.getCoordinateX() % 800));
 
-        }
+
+            //leftBackground.getDesert().setX((-camera.getCoordinateX())%800);
+            //rightBackground.getDesert().setX((800 - camera.getCoordinateX())%800);
+
+           // timeTampon = time;
+
+        //}
+
+        hero.getSpriteSheet().setX(150 + (hero.getX()-camera.getCoordinateX()));
+
+        System.out.println("xh-xc = "+ 150+(hero.getX()-camera.getCoordinateX()));
 
 
     }
