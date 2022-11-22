@@ -1,3 +1,7 @@
 # RunnerV1
 
-This is a runner video game. The first goal is to make running a character in front of a background. Work in progress.
+This is a runner video game. 
+
+We have a hero running with constant acceleration and followed by a camera. 
+This camera follows the movement of a spring relative to the hero. 
+Then, the hero can jumps when we click on the mouse. 
