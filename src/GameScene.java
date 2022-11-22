@@ -25,7 +25,15 @@ public class GameScene extends Scene {
         hero = new Hero("heros.png", 1); //on crée notre héro dans sa position initiale
         p.getChildren().add(hero.getSpriteSheet()); // on ajoute le héro au Group
 
-        timer.start();
+        timer.start();  // démarrage du timer
+
+
+        this.setOnMouseClicked( (event)->{     // execute les lignes de code suivante à chaque clique de la souris
+            System.out.println("Jump");
+            hero.jump();
+        });
+
+
 
     }
 
@@ -46,8 +54,8 @@ public class GameScene extends Scene {
             //camera.setCoordinateX((camera.getCoordinateX() + 10)%800) ;
 
 
-            leftBackground.getDesert().setX(-(camera.getCoordinateX() % 800));
-            rightBackground.getDesert().setX(800 - (camera.getCoordinateX() % 800));
+            leftBackground.getDesert().setX(-(camera.getCoordinateX() % 800));  // positionement du paysage suivant les
+            rightBackground.getDesert().setX(800 - (camera.getCoordinateX() % 800)); // mouvements de la camera
 
 
             //leftBackground.getDesert().setX((-camera.getCoordinateX())%800);
@@ -57,7 +65,9 @@ public class GameScene extends Scene {
 
         //}
 
-        hero.getSpriteSheet().setX(150 + (hero.getX()-camera.getCoordinateX()));
+        hero.getSpriteSheet().setX(150 + (hero.getX()-camera.getCoordinateX())); //affichage du héro à l'écran, suivant les modifications
+
+        hero.getSpriteSheet().setY(hero.getY()); // de sa position en x et en y
 
         System.out.println("xh-xc = "+ 150+(hero.getX()-camera.getCoordinateX()));
 
@@ -68,12 +78,15 @@ public class GameScene extends Scene {
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
-        public void handle(long time) {
+        public void handle(long time) {      // appelle les fonctions suivante périodiquement à intervalle de temps très court
             hero.update(time);
             camera.update(time, hero);
             update(time);
         }
     };
+
+
+
 
 
 
